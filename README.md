@@ -58,6 +58,11 @@ docker run --rm \
   ./vendor/bin/sail artisan db:seed --class=UserSeeder
   ```
 
+  Run Queue:
+  ``` 
+  ./vendor/bin/sail artisan queue:work
+  ```
+
   ## Without Docker:
   Install Dependencies:
   ```
@@ -77,9 +82,60 @@ docker run --rm \
   ```
   php artisan serve
   ```
+  Run Queue:
+  ``` 
+  ./vendor/bin/sail artisan queue:work
+  ```
 
+  ## Environment Configuration
+  Generate .env file with following:
+  ```
+  APP_NAME=Laravel
+  APP_ENV=local
+  APP_KEY=base64:P0jDWkxDaDbYMS20fvp1j/8+li6JPP56r658csFTw2c=
+  APP_DEBUG=true
+  APP_URL=http://localhost:8000
+  APP_PORT=8000
+  SANCTUM_STATEFUL_DOMAINS=localhost:8000
+  SESSION_DOMAIN=localhost
+
+  LOG_CHANNEL=stack
+  LOG_DEPRECATIONS_CHANNEL=null
+  LOG_LEVEL=debug
+
+  DB_CONNECTION=mysql
+  DB_HOST=mysql
+  DB_PORT=3306
+  FORWARD_DB_PORT=3307
+  DB_DATABASE=laravel
+  DB_USERNAME=sail
+  DB_PASSWORD=password
+
+  PUSHER_APP_ID=
+  PUSHER_APP_KEY=
+  PUSHER_APP_SECRET=
+  PUSHER_HOST=
+  PUSHER_PORT=443
+  PUSHER_SCHEME=https
+  PUSHER_APP_CLUSTER=
+
+  VITE_APP_NAME="${APP_NAME}"
+  VITE_PUSHER_APP_KEY="${PUSHER_APP_KEY}"
+  VITE_PUSHER_HOST="${PUSHER_HOST}"
+  VITE_PUSHER_PORT="${PUSHER_PORT}"
+  VITE_PUSHER_SCHEME="${PUSHER_SCHEME}"
+  VITE_PUSHER_APP_CLUSTER="${PUSHER_APP_CLUSTER}"
+
+  BROADCAST_DRIVER=pusher
+  CACHE_DRIVER=file
+  FILESYSTEM_DISK=local
+  QUEUE_CONNECTION=database
+  SESSION_DRIVER=file
+  SESSION_LIFETIME=120
+  ```
   > [!NOTE]
-  > Important: Please update Puhser in .env with your credentials!
+  > Important: Please update ```Pusher``` in .env with your credentials!
+
 
   ## 👥 Application Users:
    Two users are created. 
